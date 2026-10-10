@@ -58,6 +58,8 @@
 				"FailureCollectorReset",
                 "FalseAction",
                 "FocusOCRAction",
+                "FriendSearchInitAction",
+                "FriendSearchInputAction",
                 "ImageCheckSetResultAction",
                 "ImportBluePrintsEnterCodeAction",
                 "ImportBluePrintsFinishAction",

@@ -17,6 +17,7 @@
                 "EssenceGridPendingRecognition",
                 "ExpendableRecognition",
                 "ExpressionRecognition",
+                "FriendSearchExhaustedRecognition",
                 "ImageCheckNotPassedRecognition",
                 "IconRecognition",
                 "IntelArchiveScanDetailRecognition",

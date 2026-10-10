@@ -11,6 +11,7 @@
             "[JumpBack]VisitFriendsMenuScanTargetFriendOpenPriorityRemark",
             "[JumpBack]VisitFriendsMenuScanTargetFriendOpenRemark",
             "[JumpBack]VisitFriendsMenuScanTargetFriendOpen",
+            "[JumpBack]VisitFriendsPrioritySearchNext",
             "VisitFriendsMenuScanScrollFinish",
             "[JumpBack]VisitFriendsMenuScanScrollList"
         ]
@@ -252,6 +253,9 @@
                     "attach": {
                         "ready": false
                     }
+                },
+                "VisitFriendsPrioritySearchNext": {
+                    "enabled": false
                 }
             }
         },
@@ -289,6 +293,9 @@
                     "attach": {
                         "ready": false
                     }
+                },
+                "VisitFriendsPrioritySearchNext": {
+                    "enabled": false
                 }
             }
         },

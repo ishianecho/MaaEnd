@@ -1,0 +1,47 @@
+{
+    "VisitFriendsPrioritySearchInit": {
+        "desc": "搜索模式初始化：解析优先好友名单到搜索队列；由 VisitFriendsPrioritySearchEnable 开启",
+        "enabled": false,
+        "recognition": "DirectHit",
+        "pre_delay": 0,
+        "action": "Custom",
+        "custom_action": "FriendSearchInitAction",
+        "custom_action_param": {
+            "names": ""
+        },
+        "post_delay": 0,
+        "next": [
+            "VisitFriendsMenuScan"
+        ]
+    },
+    "VisitFriendsPrioritySearchNext": {
+        "desc": "白名单搜索分流（替代白名单阶段的滚动）：队列非空时走通用搜索流程，完成后经 [JumpBack] 回 MenuScan",
+        "enabled": false,
+        "recognition": "DirectHit",
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "VisitFriendsPrioritySearchExhausted",
+            "FriendSearchClearBox",
+            "FriendSearchFocusBox"
+        ]
+    },
+    "VisitFriendsPrioritySearchExhausted": {
+        "desc": "白名单搜索队列耗尽：走既有回退链路（转备注/普通/结束）；回退节点会关闭搜索分流、恢复滚动",
+        "recognition": "Custom",
+        "custom_recognition": "FriendSearchExhaustedRecognition",
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "VisitFriendsMenuScanPriorityRemarkFallbackToRemark",
+            "VisitFriendsMenuScanPriorityRemarkFallbackToNormal",
+            "VisitFriendsPrioritySearchDone"
+        ]
+    },
+    "VisitFriendsPrioritySearchDone": {
+        "desc": "优先好友已全部搜索拜访完成",
+        "recognition": "DirectHit",
+        "pre_delay": 0,
+        "post_delay": 0
+    }
+}

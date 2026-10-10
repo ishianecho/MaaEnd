@@ -1,0 +1,83 @@
+{
+    "FriendSearchClearBox": {
+        "desc": "清空搜索框内上一次的搜索词；框内无内容时模板不命中，落到聚焦节点",
+        "recognition": "TemplateMatch",
+        "roi": [
+            980,
+            24,
+            171,
+            83
+        ],
+        "template": "BatchAddFriends/UIDClearSearchBox.png",
+        "threshold": 0.7,
+        "pre_delay": 0,
+        "action": "Click",
+        "post_delay": 0,
+        "next": [
+            "FriendSearchFocusBox"
+        ]
+    },
+    "FriendSearchFocusBox": {
+        "desc": "点击搜索框占位文本使其获得焦点",
+        "recognition": "OCR",
+        "roi": [
+            62,
+            57,
+            154,
+            40
+        ],
+        "expected": [
+            "输入名称搜索好友",
+            "輸入名稱搜尋好友",
+            "(?i)Search\\s*friend\\s*by\\s*name",
+            "名前を入力して検索"
+        ],
+        "threshold": 0.7,
+        "pre_delay": 0,
+        "action": "Click",
+        "post_delay": 0,
+        "next": [
+            "FriendSearchInput"
+        ]
+    },
+    "FriendSearchInput": {
+        "desc": "输入搜索队列中的下一个关键词",
+        "recognition": "DirectHit",
+        "pre_delay": 0,
+        "action": "Custom",
+        "custom_action": "FriendSearchInputAction",
+        "post_delay": 0,
+        "next": [
+            "FriendSearchSubmit"
+        ]
+    },
+    "FriendSearchSubmit": {
+        "desc": "提交搜索并等待列表区域静止；无 next，由调用方经 [JumpBack] 接续",
+        "recognition": "OCR",
+        "roi": [
+            1067,
+            47,
+            160,
+            54
+        ],
+        "expected": [
+            "搜索",
+            "搜尋",
+            "(?i)Search",
+            "検索"
+        ],
+        "threshold": 0.7,
+        "pre_delay": 0,
+        "action": "Click",
+        "post_wait_freezes": {
+            "time": 300,
+            "target": [
+                46,
+                114,
+                1052,
+                498
+            ]
+        },
+        "post_delay": 0
+    }
+}

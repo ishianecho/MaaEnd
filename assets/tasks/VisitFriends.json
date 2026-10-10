@@ -117,6 +117,7 @@
                     "name": "Yes",
                     "option": [
                         "VisitFriendsPriorityRemark",
+                        "VisitFriendsPrioritySearchEnable",
                         "BtwAutoStockpileElasticGoodsEnable"
                     ],
                     "pipeline_override": {
@@ -175,8 +176,34 @@
                         "keywords": "{PriorityRemarkName}",
                         "substring": true
                     }
+                },
+                "VisitFriendsPrioritySearchInit": {
+                    "custom_action_param": {
+                        "names": "{PriorityRemarkName}"
+                    }
                 }
             }
+        },
+        "VisitFriendsPrioritySearchEnable": {
+            "type": "switch",
+            "label": "$option.VisitFriendsPrioritySearchEnable.label",
+            "cases": [
+                {
+                    "name": "Yes",
+                    "pipeline_override": {
+                        "VisitFriendsPrioritySearchInit": {
+                            "enabled": true
+                        },
+                        "VisitFriendsPrioritySearchNext": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "No"
+                }
+            ],
+            "default_case": "No"
         },
         "ProductionAssistControl": {
             "type": "checkbox",
